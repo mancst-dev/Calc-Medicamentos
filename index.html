@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora De Dosis Unitaria</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+
+    <!-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" /> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
+</head>
+
+<body>
+    <h1>CALCULADORA DE DOSIS UNITARIA</h1>
+    <P>Seleccione un medicamento el cual desee realizar el calculo:</P>
+
+    <div class="desktop">
+        <div class="medicamento">
+            <!-- <h2>Selecciona el Medicamento:</h2> -->
+            <label>Lista de Medicamentos:</label>
+            <!-- <input type="text" id="nomMedicamento" placeholder="Ej: Dipirona"> -->
+            <input type="text" id="searchInput" placeholder="Busca y selecciona una opción..." autocomplete="off">
+            <ul id="optionsList" class="hidden">
+                <li data-value="1">Dipirona</li>
+                <li data-value="2">Diclofenaco</li>
+                <li data-value="3">Dexametasona</li>
+                <li data-value="4">Cefalexina</li>
+                <li data-value="5">Tramadol</li>
+                <li data-value="6">Acetaminofen</li>
+                <li data-value="7">7456</li>
+                <li data-value="8">88</li>
+                <li data-value="9">88</li>
+                <li data-value="10">88</li>
+                <li data-value="11">88</li>
+                <li data-value="12">88</li>
+                <li data-value="13">88</li>
+                <li data-value="14">88</li>
+                <li data-value="15">88</li>
+                <li data-value="16">88</li>
+                <li data-value="17">88</li>
+                <li data-value="18">88</li>
+                <li data-value="19">88</li>
+                <li data-value="20">88</li>
+                <li data-value="21">88</li>
+                <li data-value="22">88</li>
+                <li data-value="23">88</li>
+                <li data-value="24">88</li>
+                <li data-value="25">88</li>
+            </ul>
+
+            <!-- <select name="" id="nomMedicamento" placeholder="">
+                <option value="">Selecciona uno</option>
+                <option value="">Dipirona</option>
+                <option value=""></option>
+            </select> -->
+
+            <!-- <label>Vía de Administración:</label>
+            <input type="text" id="nomMedicamento" placeholder="Ej: Oral"> -->
+        </div>
+        <div class="dosisKg">
+            <h3 class="titleCalculos">Calculo Kg</h3>
+            <div class="lblPeso">
+                <label>Peso (kg):</label>
+                <input type="number" id="peso" placeholder="Ej: 7">
+            </div>
+            <div class="recomendada">
+                <label>Dosis recomendada por Kilo (mg):</label>
+                <input type="number" id="recomendada" placeholder="Ej: 15">
+            </div>
+            <div class="presentacion">
+                <label for="">Presentación:</label>
+                <select class="seleBox" id="presentacion">
+                    <option value="">Selecciona uno</option>
+                    <option value="1">Comprimidos</option>
+                    <option value="">Gotas</option>
+                    <option value="">Inyectables</option>
+                    <option value="">Sobres</option>
+                    <option value="">Solución</option>
+                    <option value="">Supositorios</option>
+                    <option value="">Suspensión</option>
+                </select>
+            </div>
+            
+
+            
+
+            <!-- <button onclick="calcularDosisKg()">Calcular Dosis Total</button> -->
+
+            <!-- <div class="result" id="resultadoKg">Esperando datos...</div> -->
+        </div>
+        <div class="tiempoDosis">
+            <div class="tiempoSele">
+                <label>A partir de:</label>
+                <select class="seleBox" id="tiempoDosis" >
+                    <option value="1">1 dosis = cada 24 horas</option>
+                    <option value="2">2 dosis = cada 12 horas</option>
+                    <option value="3">3 dosis = cada 8 horas</option>
+                    <option value="4">4 dosis = cada 6 horas</option>
+                    <option value="6">6 dosis = cada 4 horas</option>
+                </select>
+            </div>
+            <div class="unidad">
+                <label>mg que contiene la unidad:</label>
+                <input type="number" id="mgUnidad" placeholder="Ej: 15">
+
+            </div>
+        </div>
+        <div class="dosisVol">
+            <h3>Conversión a Volumen</h3>
+            <div class="prescrita">
+                <label>Dosis Prescrita (mg):</label>
+                <input type="number" id="prescrita"  placeholder="Ej: 500">
+            </div>
+            <div class="disponible">
+                <label>Concentración Disponible (mg):</label>
+                <input type="number" id="disponible" placeholder="Ej: 1000">
+            </div>
+            <div class="volumen">
+                <label>Volumen (ml):</label>
+                <input type="number" id="volumen" placeholder="Ej: 5">
+            </div>
+
+            <!-- <button onclick="calcularDosis()">Calcular</button> -->
+
+            <!-- <div class="result" id="resultadoVol">Esperando datos...</div> -->
+        </div>
+        <div class="calcular" id="calcular">
+            <button type="submit" id="btnLimpiar">Limpiar</button>
+            <button id="btnCalcular" onclick="calcularDosis()">Calcular</button>
+        </div>
+        <div class="resultados">
+            <h3>Resultados</h3>
+            <div class="resultadosDia">
+                <p>Dosis día:</p>
+                <div class="result" id="resultadoKg">Esperando datos...</div>
+                 
+            </div>
+            <div class="resultadosDosis">
+                <p>Dosis:</p>
+                <div class="result" id="resultadoVol">Esperando datos...</div>
+            </div>
+            <div class="resultadosVol">
+                <p>mg/ml:</p>
+                <div class="result" id="resultadoVol">Esperando datos...</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/dosis.js"></script>
+</body>
+
+</html>
