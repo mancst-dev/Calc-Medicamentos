@@ -74,10 +74,24 @@ function calcularTodo() {
     //validaciones y calculos
     //dosis diaria
     if (isNaN(peso) || isNaN(recomendada) ||recomendada <= 0) {
-        displayKg.innerHTML = "Verifique peso y dosis recomendada.";
-        displayKg.style.color = "red";
-        return;
+        const preMed = document.getElementById('peso');
+        const preMed2 = document.getElementById('recomendada');
+        Swal.fire({
+            title: '¡Atención!',
+            text: 'Por favor, Verifique el peso y la dosis recomendada.',
+            icon: 'warning',
+            confirmButtonText: 'Ok',
+            confirmButtonColor: '#3498db',
+            background: '#f8f9fa'
+        });
+        preMed.classList.add('input-error');
+        preMed.focus();
+        preMed2.classList.add('input-error');
+        preMed2.focus();
         
+        preMed.oninput = () => preMed.classList.remove('input-error');
+        preMed2.oninput = () => preMed2.classList.remove('input-error');
+        return;
     }
     
     const dosisKg = peso * recomendada;
@@ -85,40 +99,41 @@ function calcularTodo() {
 
     //eleccion tipo presentacion
     const presentacion = parseInt(preMed.value);
-    // if (isNaN(presentacion) || presentacion <= 0){
-    //     alert("Seleccione el tipo de presentación del medicamento.");
-    //     return;
-    // }
     if (isNaN(presentacion) || presentacion <= 0) {
+        const preMed3 = document.getElementById('presentacion');
         Swal.fire({
             title: '¡Atención!',
             text: 'Por favor, selecciona el tipo de presentación del medicamento para continuar.',
             icon: 'warning',
-            confirmButtonText: 'Entendido',
-            confirmButtonColor: '#2c3e50', // Color personalizado para tu app
+            confirmButtonText: 'Ok',
+            confirmButtonColor: '#3498db',
             background: '#f8f9fa'
         });
+
+        preMed3.classList.add('input-error');
+        preMed3.focus();
+        
+        preMed3.oninput = () => preMed3.classList.remove('input-error');
         return;
     }
     //dosis por toma
     const numeroDosis = parseInt(selectTiempo.value);
-    // if (isNaN(numeroDosis) || numeroDosis <= 0){
-    //     displayXToma.innerHTML = "Seleccione la frecuencia de dosis.";
-    //     displayXToma.style.color = "red";
-    //     return;
-    // }
+    
     if (isNaN(numeroDosis) || numeroDosis <= 0){
+        const preMed4 = document.getElementById('tiempoDosis');
         Swal.fire({
             title: '¡Atención!',
             text: 'Por favor, Selecciona la frecuencia de la dosis.',
             icon: 'warning',
-            confirmButtonText: 'Entendido',
-            confirmButtonColor: '#2c3e50',
+            confirmButtonText: 'Ok',
+            confirmButtonColor: '#3498db',
             background: '#f8f9fa'
         });
-        return; 
-        // displayXToma.innerHTML = "Seleccione la frecuencia de dosis.";
-        // displayXToma.style.color = "red";
+        preMed4.classList.add('input-error');
+        preMed4.focus();
+        
+        preMed4.oninput = () => preMed4.classList.remove('input-error');
+        return;
         
     }
 
@@ -127,8 +142,23 @@ function calcularTodo() {
 
     //volumen ´por cada toma
     if (isNaN(disponible) || isNaN(volumen) || disponible <= 0) {
-        displayVolumen.innerHTML = "Verifique la concentración y volumen.";
-        displayVolumen.style.color = "red";
+        const preMed5 = document.getElementById('disponible');
+        const preMed6 = document.getElementById('volumen');
+        Swal.fire({
+            title: '¡Atención!',
+            text: 'Por favor, Verifique la concentración y el volumen.',
+            icon: 'warning',
+            confirmButtonText: 'Ok',
+            confirmButtonColor: '#3498db',
+            background: '#f8f9fa'
+        });
+        preMed5.classList.add('input-error');
+        preMed5.focus();
+        preMed6.classList.add('input-error');
+        preMed6.focus();
+        
+        preMed5.oninput = () => preMed5.classList.remove('input-error');
+        preMed6.oninput = () => preMed6.classList.remove('input-error');
         return;
     }
 
