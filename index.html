@@ -72,7 +72,7 @@
             <div class="presentacion">
                 <label for="">Presentación:</label>
                 <select class="seleBox" id="presentacion">
-                    <option value="">Selecciona uno</option>
+                    <option value="0"></option>
                     <option value="1">Comprimidos</option>
                     <option value="2">Gotas</option>
                     <option value="3">Inyectables</option>
@@ -94,6 +94,7 @@
             <div class="tiempoSele">
                 <label>A partir de:</label>
                 <select class="seleBox" id="tiempoDosis" >
+                    <option value="0"></option>
                     <option value="1">1 dosis = cada 24 horas</option>
                     <option value="2">2 dosis = cada 12 horas</option>
                     <option value="3">3 dosis = cada 8 horas</option>
@@ -103,16 +104,16 @@
             </div>
             <div class="unidad">
                 <label>mg que contiene la unidad:</label>
-                <input type="number" id="mgUnidad" placeholder="Ej: 15">
+                <input type="number" id="prescrita" placeholder="Ej: 15" disabled>
 
             </div>
         </div>
         <div class="dosisVol">
             <h3>Conversión a Volumen</h3>
-            <div class="prescrita">
+            <!-- <div class="prescrita">
                 <label>Dosis Prescrita (mg):</label>
                 <input type="number" id="prescrita"  placeholder="Ej: 500">
-            </div>
+            </div> -->
             <div class="disponible">
                 <label>Concentración Disponible (mg):</label>
                 <input type="number" id="disponible" placeholder="Ej: 1000">
@@ -134,16 +135,16 @@
             <h3>Resultados</h3>
             <div class="resultadosDia">
                 <p>Dosis día:</p>
-                <div class="result" id="resultadoKg">Esperando datos...</div>
+                <div class="result" id="resultadoKg">Datos en consulta...</div>
                  
             </div>
             <div class="resultadosDosis">
                 <p>Dosis:</p>
-                <div class="result" id="resultadoDosis">Esperando datos...</div>
+                <div class="result" id="resultadoDosis">Datos en consulta...</div>
             </div>
             <div class="resultadosVol">
                 <p>mg/ml:</p>
-                <div class="result" id="resultadoVol">Esperando datos...</div>
+                <div class="result" id="resultadoVol">Datos en consulta...</div>
             </div>
         </div>
     </div>

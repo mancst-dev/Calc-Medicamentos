@@ -4,7 +4,15 @@ const options = optionsList.getElementsByTagName('li');
 
 //variables publicas
 
-
+//
+window.onload = function() {
+    const presentacion = document.getElementById('presentacion');
+    const iniDosis = document.getElementById('tiempoDosis');
+    if (iniDosis || presentacion) {
+        iniDosis.selectedIndex = 0;
+        presentacion.selectedIndex = 0;
+    }
+};
 
 //filtro de opciones input busqueda medicamentos
 searchInput.addEventListener('input', () => {
@@ -30,16 +38,15 @@ function cl() {
     document.getElementById('peso').value = '';
     document.getElementById('recomendada').value = '';
     document.getElementById('presentacion').value = 'Selecciona uno';
-    document.getElementById('mgUnidad').value = '';
-    document.getElementById('prescrita').value = '';
+    // document.getElementById('mgUnidad').value = '';
     document.getElementById('prescrita').value = '';
     document.getElementById('disponible').value = '';
     document.getElementById('volumen').value = '';
-    document.getElementById('resultadoKg').innerHTML = 'Esperando datos...';
+    document.getElementById('resultadoKg').innerHTML = 'Datos en consulta...';
     document.getElementById('resultadoKg').style.color = 'black';
-    document.getElementById('resultadoDosis').innerHTML = 'Esperando datos...';
+    document.getElementById('resultadoDosis').innerHTML = 'Datos en consulta...';
     document.getElementById('resultadoDosis').style.color = 'black';
-    document.getElementById('resultadoVol').innerHTML = 'Esperando datos...';
+    document.getElementById('resultadoVol').innerHTML = 'Datos en consulta...';
     document.getElementById('resultadoVol').style.color = 'black';
 }
 
@@ -62,40 +69,37 @@ function calcularTodo() {
     const inputPrescrita = document.getElementById('prescrita');
     const prescrita = parseFloat(document.getElementById('prescrita').value);
 
-    //validaciones
-
-
+    //validaciones y calculos
+    //dosis diaria
     if (isNaN(peso) || isNaN(recomendada) ||recomendada <= 0) {
-        displayKg.innerHTML = "Por favor, Ingresa valores válidos.";
+        displayKg.innerHTML = "Verifique peso y dosis recomendada.";
         displayKg.style.color = "red";
+        return;
         
     }
+    
+    const dosisKg = peso * recomendada;
+    inputPrescrita.value = dosisKg;
 
-    if (isNaN(selectTiempo)){
-        displayXToma.innerHTML = "Esperando el resultado de la cantidad de dosis.";
+    //dosis por toma
+    const numeroDosis = parseInt(selectTiempo.value);
+    if (isNaN(numeroDosis) || numeroDosis <= 0){
+        displayXToma.innerHTML = "Seleccione la frecuencia de dosis.";
         displayXToma.style.color = "red";
-        
-    }
-
-    if (isNaN(prescrita) || isNaN(disponible) || isNaN(volumen) || disponible <= 0) {
-        displayVolumen.innerHTML = "Por favor, ingresa valores válidos.";
-        displayVolumen.style.color = "red";
         return;
     }
 
-    //calculos
-    //dosis diaria
-    const dosisKg = peso * recomendada;
-    inputPrescrita.value = dosisKg;
-    
-    //dosis por toma
-    const numeroDosis = parseInt(selectTiempo.value);
     const horas = 24 / parseInt(numeroDosis);
     const dosisPorTomaMg = dosisKg / numeroDosis;
 
     //volumen ´por cada toma
-    const volumenPorTomaMl = (prescrita * volumen) / disponible;
+    if (isNaN(disponible) || isNaN(volumen) || disponible <= 0) {
+        displayVolumen.innerHTML = "Verifique la concentración y volumen.";
+        displayVolumen.style.color = "red";
+        return;
+    }
 
+    const volumenPorTomaMl = (prescrita * volumen) / disponible;
 
     //resultados
     displayKg.style.color = "#2c3e50";
