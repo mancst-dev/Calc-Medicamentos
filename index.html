@@ -74,12 +74,12 @@
                 <select class="seleBox" id="presentacion">
                     <option value="">Selecciona uno</option>
                     <option value="1">Comprimidos</option>
-                    <option value="">Gotas</option>
-                    <option value="">Inyectables</option>
-                    <option value="">Sobres</option>
-                    <option value="">Solución</option>
-                    <option value="">Supositorios</option>
-                    <option value="">Suspensión</option>
+                    <option value="2">Gotas</option>
+                    <option value="3">Inyectables</option>
+                    <option value="4">Sobres</option>
+                    <option value="5">Solución</option>
+                    <option value="6">Supositorios</option>
+                    <option value="7">Suspensión</option>
                 </select>
             </div>
             
@@ -127,8 +127,8 @@
             <!-- <div class="result" id="resultadoVol">Esperando datos...</div> -->
         </div>
         <div class="calcular" id="calcular">
-            <button type="submit" id="btnLimpiar">Limpiar</button>
-            <button id="btnCalcular" onclick="calcularDosis()">Calcular</button>
+            <button id="btnLimpiar" onclick="cl()">Limpiar</button>
+            <button id="btnCalcular" onclick="calcularTodo()">Calcular</button>
         </div>
         <div class="resultados">
             <h3>Resultados</h3>
@@ -139,7 +139,7 @@
             </div>
             <div class="resultadosDosis">
                 <p>Dosis:</p>
-                <div class="result" id="resultadoVol">Esperando datos...</div>
+                <div class="result" id="resultadoDosis">Esperando datos...</div>
             </div>
             <div class="resultadosVol">
                 <p>mg/ml:</p>
