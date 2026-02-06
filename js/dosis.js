@@ -85,9 +85,9 @@ function calcularTodo() {
             background: '#f8f9fa'
         });
         preMed.classList.add('input-error');
-        preMed.focus();
+        // preMed.focus();
         preMed2.classList.add('input-error');
-        preMed2.focus();
+        // preMed2.focus();
         
         preMed.oninput = () => preMed.classList.remove('input-error');
         preMed2.oninput = () => preMed2.classList.remove('input-error');
