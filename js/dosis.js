@@ -60,8 +60,9 @@ function calcularTodo() {
     const recomendada = parseFloat(document.getElementById('recomendada').value);
     const disponible = parseFloat(document.getElementById('disponible').value);
     const volumen = parseFloat(document.getElementById('volumen').value);
+    const preMed = document.getElementById('presentacion');
     const selectTiempo = document.getElementById('tiempoDosis');
-    
+        
     //resultados 
     const displayKg = document.getElementById('resultadoKg');
     const displayXToma = document.getElementById('resultadoDosis');
@@ -81,6 +82,12 @@ function calcularTodo() {
     const dosisKg = peso * recomendada;
     inputPrescrita.value = dosisKg;
 
+    //eleccion tipo presentacion
+    const presentacion = parseInt(preMed.value);
+    if (isNaN(presentacion) || presentacion <= 0){
+        alert("Seleccione el tipo de presentación del medicamento.");
+        return;
+    }
     //dosis por toma
     const numeroDosis = parseInt(selectTiempo.value);
     if (isNaN(numeroDosis) || numeroDosis <= 0){
