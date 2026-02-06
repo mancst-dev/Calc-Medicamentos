@@ -80,7 +80,7 @@ function calcularTodo() {
     if (isNaN(prescrita) || isNaN(disponible) || isNaN(volumen) || disponible <= 0) {
         displayVolumen.innerHTML = "Por favor, ingresa valores válidos.";
         displayVolumen.style.color = "red";
-        // return;
+        return;
     }
 
     //calculos
