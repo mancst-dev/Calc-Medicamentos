@@ -179,7 +179,7 @@ button:hover {
 
 /*alerta feedback visual */
 .input-error {
-    border: 2px solid #ff4d4d !important;
+    border: 2px solid #ff4d4d ;
     
 }
 
