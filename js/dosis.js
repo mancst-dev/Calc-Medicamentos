@@ -37,7 +37,8 @@ optionsList.addEventListener('click', (e) => {
 function cl() {
     document.getElementById('peso').value = '';
     document.getElementById('recomendada').value = '';
-    document.getElementById('presentacion').value = 'Selecciona uno';
+    document.getElementById('presentacion').value = '';
+    document.getElementById('tiempoDosis').value = '';
     // document.getElementById('mgUnidad').value = '';
     document.getElementById('prescrita').value = '';
     document.getElementById('disponible').value = '';
@@ -84,16 +85,41 @@ function calcularTodo() {
 
     //eleccion tipo presentacion
     const presentacion = parseInt(preMed.value);
-    if (isNaN(presentacion) || presentacion <= 0){
-        alert("Seleccione el tipo de presentación del medicamento.");
+    // if (isNaN(presentacion) || presentacion <= 0){
+    //     alert("Seleccione el tipo de presentación del medicamento.");
+    //     return;
+    // }
+    if (isNaN(presentacion) || presentacion <= 0) {
+        Swal.fire({
+            title: '¡Atención!',
+            text: 'Por favor, selecciona el tipo de presentación del medicamento para continuar.',
+            icon: 'warning',
+            confirmButtonText: 'Entendido',
+            confirmButtonColor: '#2c3e50', // Color personalizado para tu app
+            background: '#f8f9fa'
+        });
         return;
     }
     //dosis por toma
     const numeroDosis = parseInt(selectTiempo.value);
+    // if (isNaN(numeroDosis) || numeroDosis <= 0){
+    //     displayXToma.innerHTML = "Seleccione la frecuencia de dosis.";
+    //     displayXToma.style.color = "red";
+    //     return;
+    // }
     if (isNaN(numeroDosis) || numeroDosis <= 0){
-        displayXToma.innerHTML = "Seleccione la frecuencia de dosis.";
-        displayXToma.style.color = "red";
-        return;
+        Swal.fire({
+            title: '¡Atención!',
+            text: 'Por favor, Selecciona la frecuencia de la dosis.',
+            icon: 'warning',
+            confirmButtonText: 'Entendido',
+            confirmButtonColor: '#2c3e50',
+            background: '#f8f9fa'
+        });
+        return; 
+        // displayXToma.innerHTML = "Seleccione la frecuencia de dosis.";
+        // displayXToma.style.color = "red";
+        
     }
 
     const horas = 24 / parseInt(numeroDosis);
@@ -106,16 +132,16 @@ function calcularTodo() {
         return;
     }
 
-    const volumenPorTomaMl = (prescrita * volumen) / disponible;
+    const volumenPorTomaMl = (dosisPorTomaMg * volumen) / disponible;
 
     //resultados
     displayKg.style.color = "#2c3e50";
     displayKg.innerHTML = `Dosis Total Diaria: <strong>${dosisKg.toFixed(2)} mg</strong>`;
 
     displayXToma.style.color = "#2c3e50";
-    displayXToma.innerHTML = `${numeroDosis} dosis cada ${horas} horas en <strong>${dosisPorTomaMg.toFixed(2)} mg</strong> de <strong>${nombre}</strong>`;
+    displayXToma.innerHTML = `${numeroDosis} dosis cada ${horas} horas en <strong>${dosisPorTomaMg.toFixed(2)} mg</strong> de <strong>${nombre}</strong>.`;
 
     displayVolumen.style.color = "#2c3e50";
-    displayVolumen.innerHTML = `Administrar: <strong>${volumenPorTomaMl.toFixed(2)} ml</strong> de ${nombre} por cada toma.`;
+    displayVolumen.innerHTML = `Suministrar <strong>${volumenPorTomaMl.toFixed(2)} ml</strong> de <strong>${nombre}</strong> cada ${horas} horas.`;
 
 }
