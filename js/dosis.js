@@ -85,9 +85,9 @@ function calcularTodo() {
             background: '#f8f9fa'
         });
         preMed.classList.add('input-error');
-        // preMed.focus();
+        preMed.focus();
         preMed2.classList.add('input-error');
-        // preMed2.focus();
+        preMed2.focus();
         
         preMed.oninput = () => preMed.classList.remove('input-error');
         preMed2.oninput = () => preMed2.classList.remove('input-error');
@@ -111,7 +111,7 @@ function calcularTodo() {
         });
 
         preMed3.classList.add('input-error');
-        // preMed3.focus();
+        preMed3.focus();
         
         preMed3.oninput = () => preMed3.classList.remove('input-error');
         return;
@@ -130,7 +130,7 @@ function calcularTodo() {
             background: '#f8f9fa'
         });
         preMed4.classList.add('input-error');
-        // preMed4.focus();
+        preMed4.focus();
         
         preMed4.oninput = () => preMed4.classList.remove('input-error');
         return;
@@ -153,9 +153,9 @@ function calcularTodo() {
             background: '#f8f9fa'
         });
         preMed5.classList.add('input-error');
-        // preMed5.focus();
+        preMed5.focus();
         preMed6.classList.add('input-error');
-        // preMed6.focus();
+        preMed6.focus();
         
         preMed5.oninput = () => preMed5.classList.remove('input-error');
         preMed6.oninput = () => preMed6.classList.remove('input-error');

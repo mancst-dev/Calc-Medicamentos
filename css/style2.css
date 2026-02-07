@@ -231,7 +231,8 @@ button:hover {
     /* estilos para los contenedores */
     
     .medicamento, .dosisKg, .tiempoDosis, .dosisVol, .resultados, .calcular{
-        background-color:  rgb(243, 236, 236);
+        /* background-color:  rgb(243, 236, 236); */
+        background-color:  white;
         border-radius: 8px;
         width: 100%;
         /* padding: 1rem; */
