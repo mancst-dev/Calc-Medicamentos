@@ -16,7 +16,7 @@
                 <h1>Calculadora de Dosis Unitaria</h1>
                 <p>Seleccione un medicamento el cual desee realizar el calculo:</p>
             </div>
-            <label class="form-label">Lista de Medicamentos:</label>
+            <h4 class="form-label">Lista de Medicamentos:</h4>
             <input type="text" class="form-control" list="datalistOptions" id="searchInput" placeholder="Busca y selecciona una opción" autocomplete="off">
             <ul id="optionsList" class="hidden">
                 <li data-value="1">Dipirona</li>
@@ -46,10 +46,10 @@
                 <li data-value="25">88</li>
             </ul>
             <div class="dosisKg">
-                <h3>Calculo Peso</h3>
+                <h4>Calculo Peso</h4>
                 <div class="input-group mb-3">
                     <input type="number" class="form-control" id="peso" placeholder="Peso del paciente">
-                    <span class="input-group-text">Kg</span>
+                    <span class="input-group-text">kg</span>
                 </div>
                 <div class="input-group mb-3">
                     <input type="number" class="form-control" id="recomendada" placeholder="Dosis recomendada">
@@ -67,7 +67,7 @@
                 </select>
             </div>
             <div class="dosisKg">
-                <h3>Tiempo por Dosis</h3>
+                <h4>Tiempo por Dosis</h4>
                 <select class="form-select form-select seleBox" id="tiempoDosis">
                     <option selected>Seleccione el tiempo por cada dosis</option>
                     <option value="1">1 dosis = cada 24 horas</option>
@@ -78,18 +78,18 @@
                 </select>
                 <div class="input-group mb-3 unidad">
                     <input type="number" class="form-control" id="prescrita" placeholder="Resultado mg/Kg" disabled readonly>
-                    <span class="input-group-text" id="">mg/Kg</span>
+                    <span class="input-group-text" id="">mg/kg</span>
                 </div>
             </div>
             <div class="dosisKg">
-                <h3>Calculo Volumen</h3>
+                <h4>Calculo Volumen</h4>
                 <div class="input-group mb-3">
                     <input type="number" class="form-control" id="disponible" placeholder="Concentración disponible">
                     <span class="input-group-text">mg</span>
                 </div>
                 <div class="input-group mb-3">
                     <input type="number" class="form-control" id="volumen" placeholder="Volumen del medicamento">
-                    <span class="input-group-text">mg</span>
+                    <span class="input-group-text">mg/ml</span>
                 </div>
             </div>
             <div class="calcular" id="calcular">
@@ -97,7 +97,7 @@
                 <button id="btnCalcular" onclick="calcularTodo()">Calcular</button>
             </div>
             <div class="resultados">
-                <h3>Resultados</h3>
+                <h4>Resultados</h4>
                 <div class="resultadosDia">
                     <p>Dosis día:</p>
                     <div class="result" id="resultadoKg">Datos en consulta...</div>
