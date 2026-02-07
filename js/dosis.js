@@ -37,8 +37,8 @@ optionsList.addEventListener('click', (e) => {
 function cl() {
     document.getElementById('peso').value = '';
     document.getElementById('recomendada').value = '';
-    document.getElementById('presentacion').value = '';
-    document.getElementById('tiempoDosis').value = '';
+    document.getElementById('presentacion').value = 'Seleccione una presentación de medicamento';
+    document.getElementById('tiempoDosis').value = 'Seleccione el tiempo por cada dosis';
     // document.getElementById('mgUnidad').value = '';
     document.getElementById('prescrita').value = '';
     document.getElementById('disponible').value = '';
