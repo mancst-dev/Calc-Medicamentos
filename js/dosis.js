@@ -175,3 +175,6 @@ function calcularTodo() {
     displayVolumen.innerHTML = `Suministrar <strong>${volumenPorTomaMl.toFixed(2)} ml</strong> de <strong>${nombre}</strong> cada ${horas} horas.`;
 
 }
+//fecha footer
+const currentYear = new Date().getFullYear();
+document.getElementById('currentYear').textContent = currentYear;

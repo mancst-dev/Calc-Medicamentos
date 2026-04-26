@@ -19,6 +19,19 @@ body .telefono h2 {
     color: #3498db;
     /* text-align: center; */
 }
+/* footer */
+footer {
+    padding: 5px 0;
+    text-align: center;
+    width: 100%;
+    color: #e8f4fd;
+    background-color: #3498db;
+    border-radius: 20px;
+    margin-top: auto;
+}
+#foot{
+    margin: 0;
+}
 .desktop{
     display: flex;
     flex-direction: column;
